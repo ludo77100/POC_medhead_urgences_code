@@ -9,7 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private int userId ;
+    private Integer userId ;
     private String pseudo ;
     private String password ;
     private String email ;
@@ -18,7 +18,7 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String pseudo, String password, String email, Boolean activated) {
+    public User(Integer userId, String pseudo, String password, String email, Boolean activated) {
         this.userId = userId;
         this.pseudo = pseudo;
         this.password = password;
@@ -26,11 +26,11 @@ public class User {
         this.activated = activated;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
