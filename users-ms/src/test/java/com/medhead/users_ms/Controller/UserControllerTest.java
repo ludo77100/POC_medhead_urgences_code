@@ -1,5 +1,6 @@
 package com.medhead.users_ms.Controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medhead.users_ms.Services.UserService;
 import com.medhead.users_ms.entities.User;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -31,6 +34,9 @@ public class UserControllerTest {
     @MockBean
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Test
     public void whenRegisterUser_thenReturnsCreatedUser() throws Exception {
         // Given
@@ -48,14 +54,21 @@ public class UserControllerTest {
         when(userService.saveUser(any(User.class))).thenReturn(savedUser);
         when(passwordEncoder.encode(any(String.class))).thenReturn("encodedPassword");
 
-        String userJson = "{ \"pseudo\": \"testuser\", \"password\": \"password\", \"email\": \"email@test.fr\", \"activated\": true }";
+        String userJson = "{ \"pseudo\": \"testuser\", " +
+                "\"password\": \"password\", " +
+                "\"email\": \"email@test.fr\", " +
+                "\"activated\": true }";
 
         // When & Then
         mockMvc.perform(post("/users/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(userJson))
                 .andExpect(status().isCreated())
-                .andExpect(content().json("{\"userId\":1,\"pseudo\":\"testuser\",\"password\":\"encodedPassword\", \"email\": \"email@test.fr\", \"activated\": true}"));
+                .andExpect(content().json("{\"userId\":1," +
+                        "\"pseudo\":\"testuser\"," +
+                        "\"password\":\"encodedPassword\"," +
+                        "\"email\": \"email@test.fr\", " +
+                        "\"activated\": true}"));
     }
 
     @Test
@@ -75,7 +88,11 @@ public class UserControllerTest {
         mockMvc.perform(get("/users/{id}", userId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"userId\":1,\"pseudo\":\"testuser\",\"password\":\"encodedPassword\", \"email\": \"email@test.fr\", \"activated\": true}"));
+                .andExpect(content().json("{\"userId\":1," +
+                        "\"pseudo\":\"testuser\"," +
+                        "\"password\":\"encodedPassword\", " +
+                        "\"email\": \"email@test.fr\", " +
+                        "\"activated\": true}"));
     }
 
     @Test
@@ -95,7 +112,38 @@ public class UserControllerTest {
         mockMvc.perform(get("/users/pseudo/{pseudo}", pseudo)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"userId\":1,\"pseudo\":\"testuser\",\"password\":\"encodedPassword\", \"email\": \"email@test.fr\", \"activated\": true}"));
+                .andExpect(content().json("{\"userId\":1," +
+                        "\"pseudo\":\"testuser\"," +
+                        "\"password\":\"encodedPassword\"," +
+                        "\"email\": \"email@test.fr\"," +
+                        "\"activated\": true}"));
+    }
+
+    @Test
+    public void whenGetUsersList_thenReturnsAllUsers() throws Exception {
+        User user1 = new User();
+        user1.setUserId(1L);
+        user1.setPseudo("testuser1");
+        user1.setPassword("encodedPassword1");
+        user1.setEmail("email1@test.fr");
+        user1.setActivated(true);
+
+        User user2 = new User();
+        user2.setUserId(2L);
+        user2.setPseudo("testuser2");
+        user2.setPassword("encodedPassword2");
+        user2.setEmail("email2@test.fr");
+        user2.setActivated(true);
+
+        List<User> users = Arrays.asList(user1, user2);
+
+        when(userService.findAll()).thenReturn(users);
+
+        // When & Then
+        mockMvc.perform(get("/users")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(users)));
     }
 
 }
