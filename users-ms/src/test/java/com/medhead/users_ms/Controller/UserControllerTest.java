@@ -11,9 +11,11 @@ import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest
@@ -55,5 +57,46 @@ public class UserControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(content().json("{\"userId\":1,\"pseudo\":\"testuser\",\"password\":\"encodedPassword\", \"email\": \"email@test.fr\", \"activated\": true}"));
     }
+
+    @Test
+    public void whenGetUserById_thenReturnsUser() throws Exception {
+        // Given
+        Long userId = 1L;
+        User user = new User();
+        user.setUserId(userId);
+        user.setPseudo("testuser");
+        user.setPassword("encodedPassword");
+        user.setEmail("email@test.fr");
+        user.setActivated(true);
+
+        when(userService.findById(userId)).thenReturn(Optional.of(user));
+
+        // When & Then
+        mockMvc.perform(get("/users/{id}", userId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"userId\":1,\"pseudo\":\"testuser\",\"password\":\"encodedPassword\", \"email\": \"email@test.fr\", \"activated\": true}"));
+    }
+
+    @Test
+    public void whenGetUserByPseudo_thenReturnsUser() throws Exception {
+        // Given
+        String pseudo = "testuser";
+        User user = new User();
+        user.setUserId(1L);
+        user.setPseudo(pseudo);
+        user.setPassword("encodedPassword");
+        user.setEmail("email@test.fr");
+        user.setActivated(true);
+
+        when(userService.findByPseudo(pseudo)).thenReturn(Optional.of(user));
+
+        // When & Then
+        mockMvc.perform(get("/users/pseudo/{pseudo}", pseudo)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"userId\":1,\"pseudo\":\"testuser\",\"password\":\"encodedPassword\", \"email\": \"email@test.fr\", \"activated\": true}"));
+    }
+
 }
 
