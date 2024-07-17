@@ -2,6 +2,7 @@ package com.medhead.users_ms.Services.Impl;
 
 import com.medhead.users_ms.Dao.UserRepository;
 import com.medhead.users_ms.Services.UserService;
+import com.medhead.users_ms.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -43,4 +44,9 @@ public class UserServiceImpl implements UserService {
         return passwordEncoder.matches(plainPassword, hashedPassword);
     }
 
+    @Override
+    public User saveUser(User user) {
+        user.setPassword(registerUser(user.getPassword()));
+        return userRepository.save(user);
+    }
 }
