@@ -1,5 +1,6 @@
 package com.medhead.users_ms.Services;
 
+import com.medhead.users_ms.DTO.UserDTO;
 import com.medhead.users_ms.entities.User;
 
 import java.util.List;
@@ -13,7 +14,9 @@ public interface UserService {
 
     Optional<User> findByPseudo(String pseudo);
 
-    List<User> findAll();
+    List<UserDTO> findAll();
 
     boolean deleteUser(Long id);
+
+    User toggleActivation(Long id);
 }

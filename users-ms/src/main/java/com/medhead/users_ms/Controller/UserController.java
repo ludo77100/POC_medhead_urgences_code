@@ -1,6 +1,7 @@
 package com.medhead.users_ms.Controller;
 
 
+import com.medhead.users_ms.DTO.UserDTO;
 import com.medhead.users_ms.Services.UserService;
 import com.medhead.users_ms.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getUsersList() {
-        List<User> users = userService.findAll();
+    public ResponseEntity<List<UserDTO>> getUsersList() {
+        List<UserDTO> users = userService.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
@@ -51,6 +52,15 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/{id}/toggleActivation")
+    public ResponseEntity<User> toggleUserActivation(@PathVariable Long id) {
+        User updatedUser = userService.toggleActivation(id);
+        if (updatedUser == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
 }

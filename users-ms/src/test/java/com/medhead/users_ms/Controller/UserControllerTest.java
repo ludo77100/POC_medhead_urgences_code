@@ -1,6 +1,7 @@
 package com.medhead.users_ms.Controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.medhead.users_ms.DTO.UserDTO;
 import com.medhead.users_ms.Services.UserService;
 import com.medhead.users_ms.entities.User;
 import org.junit.jupiter.api.Test;
@@ -109,21 +110,19 @@ public class UserControllerTest {
 
     @Test
     public void whenGetUsersList_thenReturnsAllUsers() throws Exception {
-        User user1 = new User();
+        UserDTO user1 = new UserDTO();
         user1.setUserId(1L);
         user1.setPseudo("testuser1");
-        user1.setPassword("encodedPassword1");
         user1.setEmail("email1@test.fr");
         user1.setActivated(true);
 
-        User user2 = new User();
+        UserDTO user2 = new UserDTO();
         user2.setUserId(2L);
         user2.setPseudo("testuser2");
-        user2.setPassword("encodedPassword2");
         user2.setEmail("email2@test.fr");
         user2.setActivated(true);
 
-        List<User> users = Arrays.asList(user1, user2);
+        List<UserDTO> users = Arrays.asList(user1, user2);
 
         when(userService.findAll()).thenReturn(users);
 
@@ -160,9 +159,48 @@ public class UserControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-    
-    //TODO activer/désactiver un utilisateur
+    @Test
+    public void whenToggleUserActivation_thenReturnsUpdatedUser() throws Exception {
+        // Given
+        Long userId = 1L;
+        User user = new User();
+        user.setUserId(userId);
+        user.setPseudo("testuser");
+        user.setPassword("encodedPassword");
+        user.setEmail("email@test.fr");
+        user.setActivated(true);
+
+        User updatedUser = new User();
+        updatedUser.setUserId(userId);
+        updatedUser.setPseudo("testuser");
+        updatedUser.setPassword("encodedPassword");
+        updatedUser.setEmail("email@test.fr");
+        updatedUser.setActivated(false); // Simulating the toggle action
+
+        when(userService.toggleActivation(userId)).thenReturn(updatedUser);
+
+        // When & Then
+        mockMvc.perform(patch("/users/{id}/toggleActivation", userId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(updatedUser)));
+    }
+
+    @Test
+    public void whenToggleUserActivation_thenReturnsNotFound() throws Exception {
+        // Given
+        Long userId = 1L;
+
+        when(userService.toggleActivation(userId)).thenReturn(null);
+
+        // When & Then
+        mockMvc.perform(patch("/users/{id}/toggleActivation", userId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
     //TODO modifier un utilisateur
+    //TODO modifier le password
 
 }
 

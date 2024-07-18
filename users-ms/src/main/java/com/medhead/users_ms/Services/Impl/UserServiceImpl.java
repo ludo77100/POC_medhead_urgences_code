@@ -1,5 +1,6 @@
 package com.medhead.users_ms.Services.Impl;
 
+import com.medhead.users_ms.DTO.UserDTO;
 import com.medhead.users_ms.Dao.UserRepository;
 import com.medhead.users_ms.Services.UserService;
 import com.medhead.users_ms.entities.User;
@@ -64,8 +65,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public List<UserDTO> findAll() {
+        return userRepository.findAll().stream().map(this::convertToDTO).toList();
     }
 
     public boolean deleteUser(Long id) {
@@ -74,5 +75,26 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         return false;
+    }
+
+    public User toggleActivation(Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        if (!userOptional.isPresent()) {
+            return null;
+        }
+
+        User user = userOptional.get();
+        user.setActivated(!user.getActivated());
+        return userRepository.save(user);
+    }
+
+    //TODO TU
+    private UserDTO convertToDTO(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(user.getUserId());
+        userDTO.setPseudo(user.getPseudo());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setActivated(user.getActivated());
+        return userDTO;
     }
 }
