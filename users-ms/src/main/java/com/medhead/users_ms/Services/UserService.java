@@ -19,4 +19,6 @@ public interface UserService {
     boolean deleteUser(Long id);
 
     User toggleActivation(Long id);
+
+    User updateUser(Long userId, User user);
 }

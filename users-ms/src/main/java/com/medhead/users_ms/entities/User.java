@@ -3,8 +3,10 @@ package com.medhead.users_ms.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "user_account")
 public class User {
 
     @Id

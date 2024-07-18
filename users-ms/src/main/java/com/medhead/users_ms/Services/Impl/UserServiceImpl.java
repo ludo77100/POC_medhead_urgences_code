@@ -88,6 +88,24 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public User updateUser(Long userId, User user) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (!userOptional.isPresent()) {
+            return null;
+        }
+
+        User userToUpdate = userOptional.get();
+
+        userToUpdate.setUserId(userId);
+        userToUpdate.setPseudo(user.getPseudo());
+        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setEmail(user.getEmail());
+        userToUpdate.setActivated(user.getActivated());
+
+        return userRepository.save(userToUpdate);
+    }
+
     //TODO TU
     private UserDTO convertToDTO(User user) {
         UserDTO userDTO = new UserDTO();

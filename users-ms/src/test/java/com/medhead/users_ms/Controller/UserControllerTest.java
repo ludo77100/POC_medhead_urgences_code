@@ -199,8 +199,30 @@ public class UserControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-    //TODO modifier un utilisateur
-    //TODO modifier le password
+/*    @Test
+    public void whenUpdateUser_thenReturnsUpdatedUser() throws Exception {
+        // Given
+        Long userId = 1L;
+        User user = new User();
+        user.setUserId(userId);
+        user.setPseudo("updateduser");
+        user.setPassword("encodedPassword");
+        user.setEmail("updatedemail@test.fr");
+        user.setActivated(true);
+
+        when(userService.updateUser(userId, user)).thenReturn(user);
+
+        String userJson = "{ \"pseudo\": \"updateduser\", " +
+                "\"password\": \"encodedPassword\", " +
+                "\"email\": \"updatedemail@test.fr\", " +
+                "\"activated\": true }";
+
+        // When & Then
+        mockMvc.perform(patch("/users/update/{id}", userId)
+                        .contentType(MediaType.APPLICATION_JSON).content(userJson))
+                        .andExpect(status().isOk()).andExpect(content()
+                        .json(objectMapper.writeValueAsString(user)));
+    }*/
 
 }
 
