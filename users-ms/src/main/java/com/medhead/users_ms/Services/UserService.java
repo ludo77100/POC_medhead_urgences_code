@@ -14,4 +14,6 @@ public interface UserService {
     Optional<User> findByPseudo(String pseudo);
 
     List<User> findAll();
+
+    boolean deleteUser(Long id);
 }

@@ -46,7 +46,7 @@ public class UserControllerTest {
 
         User savedUser = new User();
         savedUser.setUserId(1L);
-        savedUser.setPseudo("testuser");
+        savedUser.setPseudo(user.getPseudo());
         savedUser.setPassword("encodedPassword");
         savedUser.setEmail("email@test.fr");
         savedUser.setActivated(true);
@@ -64,11 +64,7 @@ public class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(userJson))
                 .andExpect(status().isCreated())
-                .andExpect(content().json("{\"userId\":1," +
-                        "\"pseudo\":\"testuser\"," +
-                        "\"password\":\"encodedPassword\"," +
-                        "\"email\": \"email@test.fr\", " +
-                        "\"activated\": true}"));
+                .andExpect(content().json(objectMapper.writeValueAsString(savedUser)));
     }
 
     @Test
@@ -88,11 +84,7 @@ public class UserControllerTest {
         mockMvc.perform(get("/users/{id}", userId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"userId\":1," +
-                        "\"pseudo\":\"testuser\"," +
-                        "\"password\":\"encodedPassword\", " +
-                        "\"email\": \"email@test.fr\", " +
-                        "\"activated\": true}"));
+                .andExpect(content().json(objectMapper.writeValueAsString(user)));
     }
 
     @Test
@@ -112,11 +104,7 @@ public class UserControllerTest {
         mockMvc.perform(get("/users/pseudo/{pseudo}", pseudo)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"userId\":1," +
-                        "\"pseudo\":\"testuser\"," +
-                        "\"password\":\"encodedPassword\"," +
-                        "\"email\": \"email@test.fr\"," +
-                        "\"activated\": true}"));
+                .andExpect(content().json(objectMapper.writeValueAsString(user)));
     }
 
     @Test
@@ -145,6 +133,36 @@ public class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(users)));
     }
+
+    @Test
+    public void whenDeleteUser_thenReturnsNoContent() throws Exception {
+        // Given
+        Long userId = 1L;
+
+        when(userService.deleteUser(userId)).thenReturn(true);
+
+        // When & Then
+        mockMvc.perform(delete("/users/{id}", userId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    public void whenDeleteUser_thenReturnsNotFound() throws Exception {
+        // Given
+        Long userId = 1L;
+
+        when(userService.deleteUser(userId)).thenReturn(false);
+
+        // When & Then
+        mockMvc.perform(delete("/users/{id}", userId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    
+    //TODO activer/désactiver un utilisateur
+    //TODO modifier un utilisateur
 
 }
 
