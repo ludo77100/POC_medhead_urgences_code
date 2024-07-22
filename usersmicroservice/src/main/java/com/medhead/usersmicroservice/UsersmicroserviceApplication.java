@@ -1,13 +1,13 @@
-package com.medhead.users_ms;
+package com.medhead.usersmicroservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UsersMsApplication {
+public class UsersmicroserviceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UsersMsApplication.class, args);
+		SpringApplication.run(UsersmicroserviceApplication.class, args);
 	}
 
 }

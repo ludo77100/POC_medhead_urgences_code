@@ -1,10 +1,10 @@
-package com.medhead.users_ms;
+package com.medhead.usersmicroservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UsersMsApplicationTests {
+class UsersmicroserviceApplicationTests {
 
 	@Test
 	void contextLoads() {
