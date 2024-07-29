@@ -5,6 +5,7 @@ import com.medhead.patientsmicroservice.Controllers.PatientController;
 import com.medhead.patientsmicroservice.Entities.Care;
 import com.medhead.patientsmicroservice.Entities.Patient;
 import com.medhead.patientsmicroservice.Entities.PostalAddress;
+import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +39,20 @@ public class PatientControllerTest {
     private ObjectMapper objectMapper;
 
     @MockBean
-    private PatientController patientController ;
+    private PatientController patientController;
 
-    public static List<Patient> patientList ;
+    static List<Patient> patientList;
+    static PostalAddress postalAddress = new PostalAddress();
+    static PostalAddress postalAddress2 = new PostalAddress();
+    static Patient patient1 = new Patient();
+    static Patient patient2 = new Patient();
+    static Care care = new Care();
+    static Care care2 = new Care();
+    static Care care3 = new Care();
+
 
     @BeforeAll
-    public static void initData () {
-        PostalAddress postalAddress = new PostalAddress();
+    public static void initData() {
         postalAddress.setPostalAddressId(1L);
         postalAddress.setStreetAddress("1 mn street");
         postalAddress.setComplementaryAddressLine("test");
@@ -53,7 +61,6 @@ public class PatientControllerTest {
         postalAddress.setState("StateTest");
         postalAddress.setCountry("France");
 
-        PostalAddress postalAddress2 = new PostalAddress();
         postalAddress2.setPostalAddressId(2L);
         postalAddress2.setStreetAddress("2 mn street");
         postalAddress2.setCity("Paris");
@@ -61,8 +68,7 @@ public class PatientControllerTest {
         postalAddress2.setState("StateTest2");
         postalAddress2.setCountry("France");
 
-        Patient patient1 = new Patient();
-        patient1.setPatientId(2L);
+        patient1.setPatientId(1L);
         patient1.setBirthDate(LocalDate.of(2000, 1, 1));
         patient1.setNationality("Nationality 1");
         patient1.setFirstName("John");
@@ -71,7 +77,6 @@ public class PatientControllerTest {
         patient1.setIdCardNumberList(listId1);
         patient1.setAddress(postalAddress);
 
-        Patient patient2 = new Patient();
         patient2.setPatientId(2L);
         patient2.setBirthDate(LocalDate.of(2000, 2, 2));
         patient2.setNationality("Nationality 2");
@@ -81,31 +86,28 @@ public class PatientControllerTest {
         patient1.setIdCardNumberList(listId2);
         patient2.setAddress(postalAddress2);
 
-        Care care = new Care() ;
         care.setCareId(1L);
         care.setOpenCare(false);
-        care.setCareDateStart(LocalDate.of(2010,2,3));
-        care.setCareDateEnd(LocalDate.of(2010, 2,4));
+        care.setCareDateStart(LocalDate.of(2010, 2, 3));
+        care.setCareDateEnd(LocalDate.of(2010, 2, 4));
         care.setAssignmentHospitalId(1L);
         care.setAssignmentSpecialityId(2L);
         care.setCareLatitude(48.867279);
         care.setCareLongitude(2.781492);
         care.setPatient(patient1);
 
-        Care care2 = new Care() ;
         care2.setCareId(2L);
         care2.setOpenCare(true);
-        care2.setCareDateStart(LocalDate.of(2015,2,3));
+        care2.setCareDateStart(LocalDate.of(2015, 2, 3));
         care2.setAssignmentHospitalId(4L);
         care2.setAssignmentSpecialityId(2L);
         care2.setCareLatitude(49.133848);
         care2.setCareLongitude(2.572024);
         care2.setPatient(patient1);
 
-        Care care3 = new Care() ;
         care3.setCareId(3L);
         care3.setOpenCare(true);
-        care3.setCareDateStart(LocalDate.of(2015,2,3));
+        care3.setCareDateStart(LocalDate.of(2015, 2, 3));
         care3.setAssignmentHospitalId(3L);
         care3.setAssignmentSpecialityId(2L);
         care3.setCareLatitude(48.850909);
@@ -124,9 +126,21 @@ public class PatientControllerTest {
 
         mockMvc.perform(get("/patient/all")
                         .contentType(MediaType.APPLICATION_JSON))
-                        .andExpect(status().isOk())
-                        .andExpect(content().json(objectMapper.writeValueAsString(patientList)));
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(patientList)));
     }
 
+    @Test
+    public void whenGetPatientById_thenReturnsPatient() throws Exception {
 
+
+        when(patientController.findPatientById(1L)).thenReturn(ResponseEntity.ok(patient1));
+
+        mockMvc.perform(get("/patient/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(patient1)));
+
+
+    }
 }
