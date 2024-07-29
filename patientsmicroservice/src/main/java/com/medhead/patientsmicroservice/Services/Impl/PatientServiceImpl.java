@@ -25,5 +25,10 @@ public class PatientServiceImpl implements PatientService {
         return patientRepository.findById(patientId);
     }
 
+    @Override
+    public Optional<Patient> findByName(String firstName, String lastName) {
+        return patientRepository.findPatientByFirstNameAndLastNameIgnoreCase(firstName, lastName);
+    }
+
 
 }

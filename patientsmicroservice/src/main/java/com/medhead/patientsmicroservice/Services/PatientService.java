@@ -9,4 +9,6 @@ public interface PatientService {
     List<Patient> findAll();
 
     Optional<Patient> findById(Long patientId);
+
+    Optional<Patient> findByName(String firstName, String lastName);
 }

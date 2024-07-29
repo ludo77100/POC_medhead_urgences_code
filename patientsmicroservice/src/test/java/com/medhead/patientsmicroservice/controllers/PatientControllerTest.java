@@ -5,15 +5,14 @@ import com.medhead.patientsmicroservice.Controllers.PatientController;
 import com.medhead.patientsmicroservice.Entities.Care;
 import com.medhead.patientsmicroservice.Entities.Patient;
 import com.medhead.patientsmicroservice.Entities.PostalAddress;
-import org.aspectj.lang.annotation.Before;
-import org.junit.jupiter.api.BeforeAll;
+import com.medhead.patientsmicroservice.Services.PatientService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -25,7 +24,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
 
 @WebMvcTest(PatientController.class)
 @AutoConfigureMockMvc(addFilters = false)
@@ -39,63 +37,66 @@ public class PatientControllerTest {
     private ObjectMapper objectMapper;
 
     @MockBean
-    private PatientController patientController;
+    private PatientService patientService;
 
-    static List<Patient> patientList;
-    static PostalAddress postalAddress = new PostalAddress();
-    static PostalAddress postalAddress2 = new PostalAddress();
-    static Patient patient1 = new Patient();
-    static Patient patient2 = new Patient();
-    static Care care = new Care();
-    static Care care2 = new Care();
-    static Care care3 = new Care();
+    private List<Patient> patientList;
+    private PostalAddress postalAddress1;
+    private PostalAddress postalAddress2;
+    private Patient patient1;
+    private Patient patient2;
+    private Care care1;
+    private Care care2;
+    private Care care3;
 
+    @BeforeEach
+    public void setUp() {
+        postalAddress1 = new PostalAddress();
+        postalAddress1.setPostalAddressId(1L);
+        postalAddress1.setStreetAddress("1 mn street");
+        postalAddress1.setComplementaryAddressLine("test");
+        postalAddress1.setCity("Paris");
+        postalAddress1.setPostalCode("75001");
+        postalAddress1.setState("StateTest");
+        postalAddress1.setCountry("France");
 
-    @BeforeAll
-    public static void initData() {
-        postalAddress.setPostalAddressId(1L);
-        postalAddress.setStreetAddress("1 mn street");
-        postalAddress.setComplementaryAddressLine("test");
-        postalAddress.setCity("Paris");
-        postalAddress.setPostalCode("75001");
-        postalAddress.setState("StateTest");
-        postalAddress.setCountry("France");
-
+        postalAddress2 = new PostalAddress();
         postalAddress2.setPostalAddressId(2L);
         postalAddress2.setStreetAddress("2 mn street");
         postalAddress2.setCity("Paris");
-        postalAddress2.setPostalCode("75001");
+        postalAddress2.setPostalCode("75002");
         postalAddress2.setState("StateTest2");
         postalAddress2.setCountry("France");
 
+        patient1 = new Patient();
         patient1.setPatientId(1L);
         patient1.setBirthDate(LocalDate.of(2000, 1, 1));
         patient1.setNationality("Nationality 1");
         patient1.setFirstName("John");
         patient1.setLastName("DOE");
-        List<String> listId1 = List.of("7339073939", "1233083939");
-        patient1.setIdCardNumberList(listId1);
-        patient1.setAddress(postalAddress);
+        patient1.setIdCardNumberList(List.of("7339073939", "1233083939"));
+        patient1.setAddress(postalAddress1);
 
+        patient2 = new Patient();
         patient2.setPatientId(2L);
         patient2.setBirthDate(LocalDate.of(2000, 2, 2));
         patient2.setNationality("Nationality 2");
         patient2.setFirstName("Karen");
         patient2.setLastName("DOE");
-        List<String> listId2 = List.of("7333073939", "1233789939");
-        patient1.setIdCardNumberList(listId2);
+        patient2.setIdCardNumberList(List.of("7333073939", "1233789939"));
         patient2.setAddress(postalAddress2);
 
-        care.setCareId(1L);
-        care.setOpenCare(false);
-        care.setCareDateStart(LocalDate.of(2010, 2, 3));
-        care.setCareDateEnd(LocalDate.of(2010, 2, 4));
-        care.setAssignmentHospitalId(1L);
-        care.setAssignmentSpecialityId(2L);
-        care.setCareLatitude(48.867279);
-        care.setCareLongitude(2.781492);
-        care.setPatient(patient1);
+        care1 = new Care();
+        care1.setCareId(1L);
+        care1.setOpenCare(false);
+        care1.setCareDateStart(LocalDate.of(2010, 2, 3));
+        care1.setCareDateEnd(LocalDate.of(2010, 2, 4));
+        care1.setAssignmentHospitalId(1L);
+        care1.setAssignmentSpecialityId(2L);
+        care1.setCareLatitude(48.867279);
+        care1.setCareLongitude(2.781492);
+        care1.setPatient(patient1);
 
+        care2 = new Care();
         care2.setCareId(2L);
         care2.setOpenCare(true);
         care2.setCareDateStart(LocalDate.of(2015, 2, 3));
@@ -105,6 +106,7 @@ public class PatientControllerTest {
         care2.setCareLongitude(2.572024);
         care2.setPatient(patient1);
 
+        care3 = new Care();
         care3.setCareId(3L);
         care3.setOpenCare(true);
         care3.setCareDateStart(LocalDate.of(2015, 2, 3));
@@ -119,10 +121,7 @@ public class PatientControllerTest {
 
     @Test
     public void whenGetPatientList_thenReturnsPatientList() throws Exception {
-
-
-        when(patientController.findAllPatient()).thenReturn(ResponseEntity.ok(patientList));
-
+        when(patientService.findAll()).thenReturn(patientList);
 
         mockMvc.perform(get("/patient/all")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -132,15 +131,23 @@ public class PatientControllerTest {
 
     @Test
     public void whenGetPatientById_thenReturnsPatient() throws Exception {
-
-
-        when(patientController.findPatientById(1L)).thenReturn(ResponseEntity.ok(patient1));
+        when(patientService.findById(1L)).thenReturn(java.util.Optional.of(patient1));
 
         mockMvc.perform(get("/patient/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(patient1)));
+    }
 
+    @Test
+    public void whenGetPatientByLastAndFirstNameIgnoreCase_thenReturnsPatient() throws Exception {
+        when(patientService.findByName("John", "DOE")).thenReturn(java.util.Optional.of(patient1));
 
+        mockMvc.perform(get("/patient/name")
+                        .param("firstName", "John")
+                        .param("lastName", "DOE")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(patient1)));
     }
 }
