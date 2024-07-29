@@ -29,6 +29,8 @@ public class Care {
 
     private Long assignmentSpecialityId ;
 
+    private Boolean openCare ;
+
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
@@ -37,7 +39,7 @@ public class Care {
         super();
     }
 
-    public Care(Long careId, LocalDate careDateStart, LocalDate careDateEnd, double careLatitude, double careLongitude, Long assignmentHospitalId, Long assignmentSpecialityId, Patient patient) {
+    public Care(Long careId, LocalDate careDateStart, LocalDate careDateEnd, double careLatitude, double careLongitude, Long assignmentHospitalId, Long assignmentSpecialityId, Patient patient, Boolean openCare) {
         this.careId = careId;
         this.careDateStart = careDateStart;
         this.careDateEnd = careDateEnd;
@@ -46,6 +48,7 @@ public class Care {
         this.assignmentHospitalId = assignmentHospitalId;
         this.assignmentSpecialityId = assignmentSpecialityId;
         this.patient = patient;
+        this.openCare = openCare;
     }
 
     public Long getCareId() {
@@ -112,6 +115,14 @@ public class Care {
         this.patient = patient;
     }
 
+    public Boolean getOpenCare() {
+        return openCare;
+    }
+
+    public void setOpenCare(Boolean openCare) {
+        this.openCare = openCare;
+    }
+
     @Override
     public String toString() {
         return "Care{" +
@@ -123,6 +134,7 @@ public class Care {
                 ", assignmentHospitalId=" + assignmentHospitalId +
                 ", assignmentSpecialityId=" + assignmentSpecialityId +
                 ", patient=" + patient +
+                ", openCare=" + openCare +
                 '}';
     }
 }

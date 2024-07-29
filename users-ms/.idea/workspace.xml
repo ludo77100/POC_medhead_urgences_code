@@ -5,23 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fca958f3-483a-4d7f-bc1f-48d9a62a33c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/CareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PatientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PostalAddressController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Entities/Care.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Entities/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Entities/PostalAddress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Repositories/CareRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Repositories/PatientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Repositories/PostalAddressRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/CareService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/CareServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PatientServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PostalAddressServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PatientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PostalAddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/Impl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/PatientServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/PostalAddressServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/controllers/PatientControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Entities/Care.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Entities/Care.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Repositories/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Repositories/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PatientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/CareServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
