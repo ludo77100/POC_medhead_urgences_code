@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fca958f3-483a-4d7f-bc1f-48d9a62a33c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Repositories/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Repositories/PatientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PatientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/controllers/PatientControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/controllers/PatientControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/PatientServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/Services/PatientServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
