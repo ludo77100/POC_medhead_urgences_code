@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/Impl/PatientServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Services/PatientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/controllers/PatientControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/test/java/com/medhead/patientsmicroservice/controllers/PatientControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

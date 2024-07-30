@@ -43,14 +43,28 @@ public class PatientController {
         return patient.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    //TODO FindAllPatientWithNoAssignment
 
-    //TODO CreatePatient (Cherche d'abord un patient existant et si n'existe pas en créé un)
+    @PostMapping("/save")
+    public ResponseEntity<Patient> savePatient(@RequestBody Patient patient){
+        Optional<Patient> newPatient = patientService.save(patient) ;
+        return newPatient.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.badRequest().build());    }
 
-    //TODO UpdatePatientGeneralInformation (Etat civil et Addresse)
-    //TODO UpdatePatientCareInformation
-    //TODO UpdatePatientOpenCare
+    @PutMapping("/update")
+    public ResponseEntity<Patient> updatePatient(@RequestBody Patient patient){
+        Optional<Patient> updatedPatient = patientService.update(patient);
+        return updatedPatient.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.badRequest().build());
+    }
+
     //TODO AttachPatientToAnother
 
-    //TODO DeletePatient
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deletePatient(@PathVariable Long id) {
+        boolean isRemoved = patientService.deleteById(id);
+        if (!isRemoved) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

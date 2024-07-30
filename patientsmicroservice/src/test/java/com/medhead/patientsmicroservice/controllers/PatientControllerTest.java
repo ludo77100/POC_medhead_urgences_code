@@ -19,11 +19,14 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @WebMvcTest(PatientController.class)
 @AutoConfigureMockMvc(addFilters = false)
@@ -172,4 +175,43 @@ public class PatientControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(patient2)));
     }
+
+    @Test
+    public void whenAddPatient_thenReturnsSavedPatient() throws Exception {
+        when(patientService.save(any(Patient.class))).thenReturn(Optional.ofNullable(patient1));
+
+        mockMvc.perform(post("/patient/save")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(patient1)))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(patient1)));
+    }
+
+    @Test
+    public void whenUpdatePatient_thenReturnsUpdatedPatient() throws Exception {
+        when(patientService.update(any(Patient.class))).thenReturn(Optional.ofNullable(patient1));
+
+        mockMvc.perform(put("/patient/update")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(patient1)))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(patient1)));
+    }
+
+    @Test
+    public void whenDeletePatient_thenReturnsNoContent() throws Exception {
+        when(patientService.deleteById(anyLong())).thenReturn(true);
+
+        mockMvc.perform(delete("/patient/delete/{id}", 1L))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    public void whenDeletePatientNotFound_thenReturnsNotFound() throws Exception {
+        when(patientService.deleteById(anyLong())).thenReturn(false);
+
+        mockMvc.perform(delete("/patient/delete/{id}", 1L))
+                .andExpect(status().isNotFound());
+    }
+
 }

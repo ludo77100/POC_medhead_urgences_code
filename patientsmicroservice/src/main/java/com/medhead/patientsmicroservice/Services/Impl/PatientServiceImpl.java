@@ -35,4 +35,27 @@ public class PatientServiceImpl implements PatientService {
         return patientRepository.findPatientByIdCardNumber(idCardNumber);
     }
 
+    @Override
+    public Optional<Patient> save(Patient patient) {
+        return Optional.of(patientRepository.save(patient));
+    }
+
+    @Override
+    public Optional<Patient> update(Patient patient) {
+        if (!patientRepository.findById(patient.getPatientId()).isPresent()) {
+            return Optional.empty();
+        } else {
+            return Optional.of(patientRepository.save(patient));
+        }
+    }
+
+    @Override
+    public boolean deleteById(Long id) {
+        if (!patientRepository.existsById(id)) {
+            return false;
+        }
+        patientRepository.deleteById(id);
+        return true;
+    }
+
 }
