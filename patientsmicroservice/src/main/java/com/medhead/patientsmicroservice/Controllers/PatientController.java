@@ -37,7 +37,12 @@ public class PatientController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    //TODO FindPatientByIdCardNumber
+    @GetMapping("/idCardNumber")
+    public ResponseEntity<Patient> findPatientByIdCardNumber(@RequestParam String idCardNumber){
+        Optional<Patient> patient = patientService.findByIdCardNumber(idCardNumber) ;
+        return patient.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
     //TODO FindAllPatientWithNoAssignment
 
     //TODO CreatePatient (Cherche d'abord un patient existant et si n'existe pas en créé un)

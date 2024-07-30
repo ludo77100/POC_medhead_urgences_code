@@ -11,4 +11,6 @@ public interface PatientService {
     Optional<Patient> findById(Long patientId);
 
     Optional<Patient> findByName(String firstName, String lastName);
+
+    Optional<Patient> findByIdCardNumber(String idCardNumber);
 }

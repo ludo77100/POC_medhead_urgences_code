@@ -30,5 +30,9 @@ public class PatientServiceImpl implements PatientService {
         return patientRepository.findPatientByFirstNameAndLastNameIgnoreCase(firstName, lastName);
     }
 
+    @Override
+    public Optional<Patient> findByIdCardNumber(String idCardNumber) {
+        return patientRepository.findPatientByIdCardNumber(idCardNumber);
+    }
 
 }

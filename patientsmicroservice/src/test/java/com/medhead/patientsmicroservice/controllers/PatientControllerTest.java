@@ -73,7 +73,7 @@ public class PatientControllerTest {
         patient1.setNationality("Nationality 1");
         patient1.setFirstName("John");
         patient1.setLastName("DOE");
-        patient1.setIdCardNumberList(List.of("7339073939", "1233083939"));
+        patient1.setIdCardNumberList(List.of("7339073939"));
         patient1.setAddress(postalAddress1);
 
         patient2 = new Patient();
@@ -82,7 +82,7 @@ public class PatientControllerTest {
         patient2.setNationality("Nationality 2");
         patient2.setFirstName("Karen");
         patient2.setLastName("DOE");
-        patient2.setIdCardNumberList(List.of("7333073939", "1233789939"));
+        patient2.setIdCardNumberList(List.of("93243073939", "1233789939"));
         patient2.setAddress(postalAddress2);
 
         care1 = new Care();
@@ -141,13 +141,35 @@ public class PatientControllerTest {
 
     @Test
     public void whenGetPatientByLastAndFirstNameIgnoreCase_thenReturnsPatient() throws Exception {
-        when(patientService.findByName("John", "DOE")).thenReturn(java.util.Optional.of(patient1));
+        when(patientService.findByName("John", "DoE")).thenReturn(java.util.Optional.of(patient1));
 
         mockMvc.perform(get("/patient/name")
                         .param("firstName", "John")
-                        .param("lastName", "DOE")
+                        .param("lastName", "DoE")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(patient1)));
+    }
+
+    @Test
+    public void whenGetPatientByIdCardNumber_thenReturnsPatient() throws Exception {
+        when(patientService.findByIdCardNumber("7339073939")).thenReturn(java.util.Optional.of(patient1));
+
+        mockMvc.perform(get("/patient/idCardNumber")
+                        .param("idCardNumber", "7339073939")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(patient1)));
+    }
+
+    @Test
+    public void whenGetPatientByIdCardNumberWithMultipleEntryInDb_thenReturnsPatient() throws Exception {
+        when(patientService.findByIdCardNumber("93243073939")).thenReturn(java.util.Optional.of(patient2));
+
+        mockMvc.perform(get("/patient/idCardNumber")
+                        .param("idCardNumber", "93243073939")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(patient2)));
     }
 }
