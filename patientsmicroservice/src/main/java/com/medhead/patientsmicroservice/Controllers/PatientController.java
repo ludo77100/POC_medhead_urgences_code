@@ -5,6 +5,8 @@ import com.medhead.patientsmicroservice.Services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +20,7 @@ public class PatientController {
     PatientService patientService ;
 
     @GetMapping("/all")
+    @Secured("ROLE_SUPER_ADMIN")
     public ResponseEntity<List<Patient>> findAllPatient(){
         List<Patient> patientList = patientService.findAll();
         return new ResponseEntity<>(patientList, HttpStatus.OK);
