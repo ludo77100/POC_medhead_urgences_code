@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fca958f3-483a-4d7f-bc1f-48d9a62a33c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/security/JwtRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/java/com/medhead/patientsmicroservice/Controllers/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../patientsmicroservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../patientsmicroservice/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/tsconfig.spec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Services/JwtService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +72,7 @@
     &quot;Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:stop].executor&quot;: &quot;Run&quot;,
     &quot;Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:test-run].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;authentandautho&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;frontbase&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/ludovicsouplet/Library/Mobile Documents/com~apple~CloudDocs/Parcours Architecte/P11/POC_medhead_urgences_code/users-ms&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
