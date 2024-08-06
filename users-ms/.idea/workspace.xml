@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fca958f3-483a-4d7f-bc1f-48d9a62a33c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
