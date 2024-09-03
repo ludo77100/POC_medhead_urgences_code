@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fca958f3-483a-4d7f-bc1f-48d9a62a33c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Medhead-front/src/app/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usersmicroservice/src/main/java/com/medhead/usersmicroservice/Configs/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,36 +39,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.UsersMsApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenDeleteUser_thenReturnsNoContent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenDeleteUser_thenReturnsNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenGetUserById_thenReturnsUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenGetUserByPseudo_thenReturnsUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenGetUsersList_thenReturnsAllUsers.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenPatchUserInformation_thenReturnUpdatedUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenRegisterUser_thenReturnsCreatedUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenToggleUserActivation_thenReturnsNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenToggleUserActivation_thenReturnsUpdatedUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.whenUpdateUser_thenReturnsUpdatedUser.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.users-ms [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:build-image].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:start].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:stop].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:test-run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;frontbase&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ludovicsouplet/Library/Mobile Documents/com~apple~CloudDocs/Parcours Architecte/P11/POC_medhead_urgences_code/users-ms&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.UsersMsApplication.executor": "Debug",
+    "JUnit.UserControllerTest.executor": "Run",
+    "JUnit.UserControllerTest.whenDeleteUser_thenReturnsNoContent.executor": "Run",
+    "JUnit.UserControllerTest.whenDeleteUser_thenReturnsNotFound.executor": "Run",
+    "JUnit.UserControllerTest.whenGetUserById_thenReturnsUser.executor": "Run",
+    "JUnit.UserControllerTest.whenGetUserByPseudo_thenReturnsUser.executor": "Run",
+    "JUnit.UserControllerTest.whenGetUsersList_thenReturnsAllUsers.executor": "Run",
+    "JUnit.UserControllerTest.whenPatchUserInformation_thenReturnUpdatedUser.executor": "Run",
+    "JUnit.UserControllerTest.whenRegisterUser_thenReturnsCreatedUser.executor": "Run",
+    "JUnit.UserControllerTest.whenToggleUserActivation_thenReturnsNotFound.executor": "Run",
+    "JUnit.UserControllerTest.whenToggleUserActivation_thenReturnsUpdatedUser.executor": "Run",
+    "JUnit.UserControllerTest.whenUpdateUser_thenReturnsUpdatedUser.executor": "Run",
+    "Maven.users-ms [clean,install].executor": "Run",
+    "Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:build-image].executor": "Run",
+    "Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:run].executor": "Run",
+    "Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:start].executor": "Run",
+    "Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:stop].executor": "Run",
+    "Maven.users-ms [org.springframework.boot:spring-boot-maven-plugin:3.3.1:test-run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "frontauth",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/ludovicsouplet/Library/Mobile Documents/com~apple~CloudDocs/Parcours Architecte/P11/POC_medhead_urgences_code/users-ms",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.medhead.users_ms.Configuration" />

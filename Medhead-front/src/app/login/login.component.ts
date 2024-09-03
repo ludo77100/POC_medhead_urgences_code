@@ -40,7 +40,6 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe(
         response => {
           console.log('Login successful', response);
-          // Gérer le succès de la connexion (enregistrer le token, rediriger, etc.)
           this.token.saveToken(response.accessToken);
           this.token.saveUser(response);
   
@@ -51,7 +50,6 @@ export class LoginComponent {
         },
         error => {
           console.error('Login failed', error);
-          // Gérer l'erreur de connexion (afficher un message, etc.)
           this.errorMessage = error.message;
           this.isLoginFailed = true;
         }
