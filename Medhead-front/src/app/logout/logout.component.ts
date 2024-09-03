@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { TokenService } from '../services/token.service';
+
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
@@ -12,16 +14,15 @@ import { CommonModule } from '@angular/common';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    // Logique pour déconnecter l'utilisateur, supprimer le token JWT
-    // localStorage.removeItem('token');
 
-    // Rediriger après 10 secondes
+    this.tokenService.signOut();
+
     setTimeout(() => {
       this.router.navigate(['/login']);
-    }, 10000);
+    }, 4000);
   }
 
 }

@@ -5,6 +5,7 @@ import { RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { MenuComponent } from "./menu/menu.component";
 import { CommonModule } from '@angular/common';
+import { AuthServiceService } from './services/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'Medhead-front';
+
+  constructor(public authService: AuthServiceService) {}
+
 }

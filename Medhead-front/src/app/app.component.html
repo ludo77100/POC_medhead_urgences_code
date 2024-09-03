@@ -1,5 +1,5 @@
-<div>
+<div >
   <app-header></app-header>
-  <app-menu></app-menu>
+  <app-menu *ngIf="authService.isAuthenticated();"></app-menu>
 </div>
 <router-outlet></router-outlet>

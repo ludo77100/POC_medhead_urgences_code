@@ -17,4 +17,11 @@ export class AuthServiceService {
     return this.http.post<any>(this.apiUrl + "/login", body, { headers });
   }
 
+  isAuthenticated(): boolean {
+    const token = sessionStorage.getItem('auth-user');
+    console.log('isAuth ?', token);
+    return !!token;
+  }
+
+
 }
